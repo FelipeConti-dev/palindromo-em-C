@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <string.h>
+#define lim 41
+
+//Programa que verifica se uma palavra é ou nao um palindromo
+
+int main() {
+	char string[lim], mirror[lim];
+	int i, j, dif=0,stringx=0;
+
+	scanf("%[^\n]", string);
+
+	stringx = strlen(string)-1;
+	j = stringx;
+	stringx++;
+	
+	for(i = 0; i < stringx; i++) {
+		mirror[i] = string[j];
+		j--;
+		stringx--;
+	}
+	
+	for(i = 0; i < stringx; i++) {
+   		if(string[i] != mirror[i]){ 
+		   dif = 1; 
+		   }
+	}
+	mirror[j] ='\0';
+	strcpy(string, mirror);
+	
+	if(dif != 1) 
+		printf("Esta palavra e um palindromo");
+	else 
+		printf("Esta palavra nao e um palindromo");
+	
+	return 0; 
+}
